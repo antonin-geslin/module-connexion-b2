@@ -41,8 +41,7 @@
         <h1>Welcome on Sign-in/Log-in Simulator !</h1>
         <p>Discover the world's first registration and login simulation game! Immerse yourself in an immersive experience that will make you feel the excitement of navigating a real website.</p>
         <p>Are you ready for an intense and authentic experience? Our revolutionary game pushes the boundaries of simulation by faithfully recreating every detail of the online login and registration process. Discover a wide range of true-to-life features that will put you right in the middle of the action.</p>
-        <p>Affrontez les défis de mots de passe oubliés, des confirmations par mail (prochaine mise à jour), de la recherche de pseudo etc...
-Le simulateur vous offre une véritable immersion dans le monde de la connexion en ligne, où chaque interaction compte.</p>
+        <p>Face the challenges of forgotten passwords, e-mail confirmations (next update), searching for usernames and more... The simulator takes you deep into the world of online logins, where every interaction counts.</p>
         <p>Are you ready for the challenge? Join us now and get ready for some exciting times. The future of online simulation <a class="link" href="inscription.php">starts here.</a></p>
         <p class ='disclaimer'>Alpha Version - More content comming soon</p>
     </div>

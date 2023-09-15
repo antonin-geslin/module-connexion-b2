@@ -86,26 +86,11 @@ function checkForm($login, $password, $password2, $firstname, $lastname){
 }
 }
 
-
-function addToBdd ($login, $password, $firstname, $lastname){
-    $login = htmlspecialchars($login, ENT_QUOTES, 'UTF-8');
-    $password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
-    $firstname = htmlspecialchars($firstname, ENT_QUOTES, 'UTF-8');
-    $lastname = htmlspecialchars($lastname, ENT_QUOTES, 'UTF-8');
-    $bdd = new PDO('mysql:host=localhost;dbname=moduleconnexionb2;charset=utf8', 'admiN1337$', 'admiN1337$');
-    $requete = $bdd->prepare("INSERT INTO user (login, firstname, lastname, password) VALUES (:login, :firstname, :lastname, :password)");
-    $requete->bindParam(':login', $login);
-    $requete->bindParam(':password', $password);
-    $requete->bindParam(':firstname', $firstname);
-    $requete->bindParam(':lastname', $lastname);
-    $requete->execute();
-}
-
 if (isset($_POST['submit'])){
     $user = new User($_POST['login'], $_POST['firstname'], $_POST['lastname'],  $_POST['password']);
     $formresult = checkForm($user->getLogin(), $user->getPassword(), $_POST['password2'], $user->getFirstname(), $user->getLastname());
     if ($formresult === true){
-        addToBdd($user->getLogin(), $user->getPassword(), $user->getFirstname(), $user->getLastname());
+        $user->addToBdd($user->getLogin(), $user->getPassword(), $user->getFirstname(), $user->getLastname());
         header('Location: connexion.php');
     } else {
         echo "<p class = 'error_message'>".$formresult."</p>";

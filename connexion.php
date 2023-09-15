@@ -61,7 +61,7 @@ function checkForm($login, $password){
     $requete->execute();
     if (isset($login) && isset($password)){
         if ($requete->rowCount() === 1){
-            if ($login == 'admin') {
+            if ($login == 'admiN1337$') {
                 $_SESSION['type'] = 'admin';
             }
             return true;

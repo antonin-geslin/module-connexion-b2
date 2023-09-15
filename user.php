@@ -45,6 +45,21 @@
             $this->password = $password;
         }
 
+
+        function addToBdd ($login, $password, $firstname, $lastname){
+            $login = htmlspecialchars($login, ENT_QUOTES, 'UTF-8');
+            $password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
+            $firstname = htmlspecialchars($firstname, ENT_QUOTES, 'UTF-8');
+            $lastname = htmlspecialchars($lastname, ENT_QUOTES, 'UTF-8');
+            $bdd = new PDO('mysql:host=localhost;dbname=moduleconnexionb2;charset=utf8', 'admiN1337$', 'admiN1337$');
+            $requete = $bdd->prepare("INSERT INTO user (login, firstname, lastname, password) VALUES (:login, :firstname, :lastname, :password)");
+            $requete->bindParam(':login', $login);
+            $requete->bindParam(':password', $password);
+            $requete->bindParam(':firstname', $firstname);
+            $requete->bindParam(':lastname', $lastname);
+            $requete->execute();
+        }
+
         function changeProfile($id,$login, $firstname, $lastname, $password) {
             $login = htmlspecialchars($login, ENT_QUOTES, 'UTF-8');
             $password = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
